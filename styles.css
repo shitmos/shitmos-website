@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+    color: lime;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+header, footer {
+    background-color: #333;
+    padding: 1em;
+}
+
+main {
+    padding: 2em;
+}
+
+#chatbox {
+    border: 2px solid lime;
+    margin: 1em auto;
+    padding: 1em;
+    width: 80%;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+#winamp {
+    margin: 2em auto;
+}

@@ -1,21 +1,30 @@
 body {
-    background-color: black;
-    color: lime;
+    background-color: rgb(221, 215, 181);
+    color: rgb(119, 93, 8);
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
+    height: 100vh; /* Ensures the body takes up exactly the height of the viewport */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distributes space above header and below footer */
+    align-items: center;
 }
 
 header, footer {
-    background-color: #333;
+    background-color: rgb(221, 215, 181);
+    color: rgb(119, 93, 8);;
     padding: 1em;
+    width: 100%; /* Full width */
 }
 
 main {
     padding: 2em;
+    flex: 1; /* Flexible growth to push footer down */
 }
 
 #chatbox {
-    border: 2px solid lime;
+    border: 2px solid rgb(0, 0, 0);
     margin: 1em auto;
     padding: 1em;
     width: 80%;
@@ -25,4 +34,25 @@ main {
 
 #winamp {
     margin: 2em auto;
+}
+
+.gif-container {
+    width: 80%; /* Adjust based on your preference */
+    max-width: 600px; /* Maximum size of the GIF */
+}
+
+.gif-container img {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    padding: 10px 0;
+}
+
+/* Optional: Responsive adjustments */
+@media (max-width: 600px) {
+    .gif-container {
+        width: 95%;
+    }
 }

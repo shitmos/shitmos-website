@@ -1,0 +1,32 @@
+name: Deploy to Namecheap
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install FTP Client
+        run: sudo apt-get install -y ftp
+
+      - name: Deploy to FTP Server
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          echo "Connecting to $FTP_SERVER"
+          ftp -inv $FTP_SERVER <<EOF
+          user $FTP_USERNAME $FTP_PASSWORD
+          lcd public_html
+          cd public_html
+          mput *
+          bye
+          EOF

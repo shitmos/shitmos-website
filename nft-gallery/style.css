@@ -68,3 +68,23 @@ header div {
     z-index: 1000;
     font-size: 12px;
 }
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    header div {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    #imageGrid {
+        grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns for smaller screens */
+    }
+    
+    header h1 {
+        font-size: 1.5em;
+    }
+    
+    .back-to-home {
+        font-size: 0.9em;
+    }
+}

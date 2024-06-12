@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function displayImages(data) {
+        grid.innerHTML = ''; // Clear existing images
         for (let item of data) {
             const imgId = item.name.split('#')[1];
             const pngPath = `../nfts/images/${imgId}.png`;
@@ -112,18 +113,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function filterByTrait(trait) {
-        const images = grid.getElementsByTagName('img');
-        let visibleCount = 0;
-        for (const img of images) {
-            const traits = JSON.parse(img.dataset.traits);
+        const filteredImages = [];
+        metadata.forEach(item => {
+            const traits = item.attributes;
             if (trait === 'all' || traits.some(attr => `${attr.trait_type}:${attr.value}` === trait)) {
-                img.style.display = '';
-                visibleCount++;
-            } else {
-                img.style.display = 'none';
+                filteredImages.push(item);
             }
-        }
-        console.log(`Visible images: ${visibleCount}`);
+        });
+        displayImages(filteredImages);
+        console.log(`Visible images: ${filteredImages.length}`);
     }
 
     updateColumns(columnSlider.value);

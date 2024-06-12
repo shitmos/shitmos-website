@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shitmos NFT Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Shitmos NFT Collection</h1>
+    <label for="batchSelector">Select Image Batch:</label>
+    <select id="batchSelector" onchange="loadImages(this.value)">
+        <option value="images">images</option>
+    </select>
+
+    <label for="columnSlider">Columns:</label>
+    <input type="range" id="columnSlider" min="1" max="20" value="10" oninput="updateColumns(this.value)">
+
+    <label for="traitFilter">Filter by Trait:</label>
+    <select id="traitFilter" onchange="filterByTrait(this.value)">
+        <option value="all">All Traits</option>
+    </select>
+
+    <div id="imageGrid"></div>
+    <footer>
+        <p><a href="../index.html">Back to Home</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

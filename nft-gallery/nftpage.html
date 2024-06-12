@@ -8,19 +8,20 @@
 </head>
 <body>
     <header>
+        <div class="header-top">
+            <a href="../index.html" class="back-to-home">Back to Home</a>
+        </div>
         <h1>Shitmos NFT Collection</h1>
-        <label for="batchSelector">Select Image Batch:</label>
-        <select id="batchSelector" onchange="loadImages(this.value)">
-            <option value="images">images</option>
-        </select>
-
-        <label for="columnSlider">Columns:</label>
-        <input type="range" id="columnSlider" min="1" max="20" value="10" oninput="updateColumns(this.value)">
-
-        <label for="traitFilter">Filter by Trait:</label>
-        <select id="traitFilter" onchange="filterByTrait(this.value)">
-            <option value="all">All Traits</option>
-        </select>
+        <div>
+            <label for="columnSlider">Columns:</label>
+            <input type="range" id="columnSlider" min="1" max="20" value="10" oninput="updateColumns(this.value)">
+        </div>
+        <div>
+            <label for="traitFilter">Filter by Trait:</label>
+            <select id="traitFilter" onchange="filterByTrait(this.value)">
+                <option value="all">All Traits</option>
+            </select>
+        </div>
     </header>
 
     <div id="imageGrid"></div>

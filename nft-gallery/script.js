@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const grid = document.getElementById('imageGrid');
     const columnSlider = document.getElementById('columnSlider');
     const traitFilter = document.getElementById('traitFilter');
-    
+
     let metadata = [];
     const BATCH_SIZE = 100;  // Adjust the batch size as needed
     let totalNFTs = 2222;
@@ -92,12 +92,14 @@ document.addEventListener('DOMContentLoaded', function() {
             mediaElement.dataset.traits = JSON.stringify(item.attributes);
             mediaElement.dataset.id = imgId;
             mediaElement.classList.add('nft-image');
+            mediaElement.loading = 'lazy'; // Add lazy loading
 
             const gifExists = await checkImageExists(gifPath);
             if (gifExists) {
                 mediaElement.src = gifPath;
             } else {
                 mediaElement.src = pngPath;
+                mediaElement.srcset = `${pngPath} 1x, ${pngPath.replace('.png', '@2x.png')} 2x`; // Example srcset
             }
 
             mediaElement.onerror = function() {

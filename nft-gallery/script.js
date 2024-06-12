@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadMetadataInBatches(start, end, batchName) {
         let promises = [];
         for (let i = start; i <= Math.min(end, start + BATCH_SIZE - 1); i++) {
-            promises.push(fetch(`/nfts/metadata/${i}.json`)
+            promises.push(fetch(`../nfts/metadata/${i}.json`)
                 .then(response => {
                     if (!response.ok) {
                         console.error(`Failed to fetch metadata for ${i}`);
@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
     async function displayImages(data) {
         for (let item of data) {
             const imgId = item.name.split('#')[1]; // Extract the image ID from the name
-            const pngPath = `/nfts/images/${imgId}.png`;
-            const gifPath = `/nfts/images/${imgId}.gif`;
+            const pngPath = `../nfts/images/${imgId}.png`;
+            const gifPath = `../nfts/images/${imgId}.gif`;
 
             let mediaElement = document.createElement('img');
             mediaElement.dataset.traits = JSON.stringify(item.attributes);

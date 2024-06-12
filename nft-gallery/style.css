@@ -1,7 +1,29 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 #imageGrid {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 10px; /* Adjust space between images */
+    padding: 70px 10px 10px; /* Adjust padding to account for fixed header */
 }
 
 #imageGrid img {

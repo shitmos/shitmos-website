@@ -2,24 +2,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const grid = document.getElementById('imageGrid');
     const columnSlider = document.getElementById('columnSlider');
     const traitFilter = document.getElementById('traitFilter');
-
+    
     let metadata = [];
     const BATCH_SIZE = 100;  // Adjust the batch size as needed
     let totalNFTs = 2222;
 
-    // Function to update the number of columns
     function updateColumns(numColumns) {
         grid.style.gridTemplateColumns = `repeat(${numColumns}, 1fr)`;
     }
 
-    // Function to load images based on selected batch
     function loadImages(batchName) {
         grid.innerHTML = ''; // Clear existing images
         metadata = []; // Clear existing metadata
         loadMetadataInBatches(1, totalNFTs, batchName);
     }
 
-    // Function to load metadata in batches
     function loadMetadataInBatches(start, end, batchName) {
         let promises = [];
         for (let i = start; i <= Math.min(end, start + BATCH_SIZE - 1); i++) {
@@ -27,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(response => {
                     if (!response.ok) {
                         console.error(`Failed to fetch metadata for ${i}`);
-                        return null; // Return null if fetching fails
+                        return null;
                     }
                     return response.json();
                 })
@@ -50,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Function to populate the trait filter
     function populateTraitFilter(data) {
         const traits = {};
         data.forEach(item => {
@@ -76,23 +72,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Function to check existence of images
     function checkImageExists(url) {
         return fetch(url, { method: 'HEAD' })
             .then(response => response.ok)
             .catch(() => false);
     }
 
-    // Function to display images and GIFs
     async function displayImages(data) {
         for (let item of data) {
-            const imgId = item.name.split('#')[1]; // Extract the image ID from the name
+            const imgId = item.name.split('#')[1];
             const pngPath = `../nfts/images/${imgId}.png`;
             const gifPath = `../nfts/images/${imgId}.gif`;
 
+            let linkElement = document.createElement('a');
+            linkElement.href = `https://stargaze.zone/m/shitmos/${imgId}`;
+            linkElement.target = '_blank';
+
             let mediaElement = document.createElement('img');
             mediaElement.dataset.traits = JSON.stringify(item.attributes);
-            mediaElement.dataset.id = imgId; // Store the image ID
+            mediaElement.dataset.id = imgId;
             mediaElement.classList.add('nft-image');
 
             const gifExists = await checkImageExists(gifPath);
@@ -106,11 +104,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error(`Failed to load image for ID ${imgId}`);
             };
 
-            grid.appendChild(mediaElement);
+            linkElement.appendChild(mediaElement);
+            grid.appendChild(linkElement);
         }
     }
 
-    // Function to filter images by selected trait
     function filterByTrait(trait) {
         const images = grid.getElementsByTagName('img');
         let visibleCount = 0;
@@ -126,16 +124,13 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(`Visible images: ${visibleCount}`);
     }
 
-    // Setup initial columns and load initial batch
     updateColumns(columnSlider.value);
-    loadImages('images'); // Default batch
+    loadImages('images');
 
-    // Event listener for column slider
     columnSlider.addEventListener('input', function() {
         updateColumns(this.value);
     });
 
-    // Add hover event listener to display NFT ID
     grid.addEventListener('mouseover', function(event) {
         if (event.target.tagName === 'IMG') {
             const tooltip = document.createElement('div');
@@ -158,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Expose functions to global scope so they can be called from HTML
     window.updateColumns = updateColumns;
     window.loadImages = loadImages;
     window.filterByTrait = filterByTrait;

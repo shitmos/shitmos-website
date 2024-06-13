@@ -82,8 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
         grid.innerHTML = ''; // Clear existing images
         for (let item of data) {
             const imgId = item.name.split('#')[1];
-            const pngPath = `../nfts/images/${imgId}.png`;
-            const gifPath = `../nfts/images/${imgId}.gif`;
+            const pngPath = `https://shitmos.wtf/nfts/images/${imgId}.png`; // Use absolute path
+            const gifPath = `https://shitmos.wtf/nfts/images/${imgId}.gif`; // Use absolute path
 
             let linkElement = document.createElement('a');
             linkElement.href = `https://stargaze.zone/m/shitmos/${imgId}`;
@@ -98,14 +98,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const gifExists = await checkImageExists(gifPath);
             if (gifExists) {
                 mediaElement.src = gifPath;
+                console.log(`GIF exists for ID ${imgId}: ${gifPath}`);
             } else {
                 mediaElement.src = pngPath;
-                mediaElement.srcset = `${pngPath} 1x, ${pngPath.replace('.png', '@2x.png')} 2x`; // Example srcset
+                console.log(`Loading PNG for ID ${imgId}: ${pngPath}`);
             }
 
             mediaElement.onerror = function() {
                 console.error(`Failed to load image for ID ${imgId}`);
             };
+
+            console.log(`Appending image for ID ${imgId}: ${mediaElement.src}`);
 
             linkElement.appendChild(mediaElement);
             grid.appendChild(linkElement);

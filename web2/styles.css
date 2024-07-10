@@ -13,6 +13,9 @@ body, html {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .tile {
@@ -23,7 +26,6 @@ body, html {
     animation: rotate 5s linear infinite;
 }
 
-/* Define the rotation animation */
 @keyframes rotate {
     0% {
         transform: rotate(0deg);
@@ -31,4 +33,17 @@ body, html {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.qr-code-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure it is above the grid */
+}
+
+.qr-code-container img {
+    width: 150px; /* Adjust as needed */
+    height: auto;
 }

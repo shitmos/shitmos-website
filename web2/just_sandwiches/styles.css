@@ -1,0 +1,49 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 32px);
+    grid-template-rows: repeat(auto-fill, 32px);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.tile {
+    width: 32px;
+    height: 32px;
+    background-image: url('../../assets/images/pbjs32x32.png');
+    background-size: cover;
+    animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.qr-code-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure it is above the grid */
+}
+
+.qr-code-container img {
+    width: 150px; /* Adjust as needed */
+    height: auto;
+}

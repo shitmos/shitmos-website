@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setTimeout(() => {
             lastTile.classList.add('flash');
-        }, 5000); // Start flashing after 5 seconds
+        }, 3000); // Start flashing after 5 seconds
         
         setTimeout(() => {
             lastTile.classList.remove('flash');

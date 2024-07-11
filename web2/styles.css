@@ -81,6 +81,64 @@ body, html {
     }
 }
 
+@keyframes intense-vibrate {
+    0% {
+        transform: translate(0);
+    }
+    25% {
+        transform: translate(-4px, -4px);
+    }
+    50% {
+        transform: translate(3px, -5px);
+    }
+    75% {
+        transform: translate(-4px, 3px);
+    }
+    100% {
+        transform: translate(5px, 6px);
+    }
+}
+
+@keyframes intense-vibrate-glow {
+    0% {
+        transform: translate(0);
+        filter: brightness(1);
+    }
+    25% {
+        transform: translate(-4px, -4px);
+        filter: brightness(1.5) hue-rotate(20deg);
+    }
+    50% {
+        transform: translate(4px, -4px);
+        filter: brightness(3) hue-rotate(60deg);
+    }
+    75% {
+        transform: translate(-4px, 4px);
+        filter: brightness(1.5) hue-rotate(120deg);
+    }
+    100% {
+        transform: translate(4px, 4px);
+        filter: brightness(1);
+    }
+}
+
+@keyframes light-rays {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 255, 0, 0.5), 
+                    0 0 30px rgba(255, 255, 0, 0.5), 
+                    0 0 40px rgba(255, 255, 0, 0.5), 
+                    0 0 50px rgba(255, 255, 0, 0.5), 
+                    0 0 60px rgba(255, 255, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(255, 255, 0, 0.5), 
+                    0 0 40px rgba(255, 255, 0, 0.5), 
+                    0 0 50px rgba(255, 255, 0, 0.5), 
+                    0 0 60px rgba(255, 255, 0, 0.5), 
+                    0 0 70px rgba(255, 255, 0, 0.5);
+    }
+}
+
 .qr-code-container {
     position: absolute;
     top: 50%;
@@ -107,9 +165,25 @@ body, html {
 }
 
 .bottom-right.flash {
-    animation: flash 1s linear infinite;
+    animation: flash 1.5s linear infinite;
 }
 
 .bottom-right.vibrate {
     animation: vibrate 0.2s linear infinite;
+}
+
+.bottom-right.intense-vibrate {
+    animation: intense-vibrate 0.2s linear infinite;
+}
+
+.bottom-right.intense-vibrate-glow{
+    animation: intense-vibrate-glow 0.2s linear infinite;
+}
+
+.bottom-right.glow {
+    animation: glow 2s infinite;
+}
+
+.bottom-right.light-rays {
+    animation: light-rays 2s infinite;
 }

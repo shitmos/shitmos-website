@@ -22,15 +22,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const lastTile = container.lastElementChild;
     if (lastTile) {
         lastTile.classList.add('bottom-right');
+        lastTile.addEventListener('click', function() {
+            window.location.href = 'https://sandwichswap.io/';
+        });
         
         setTimeout(() => {
             lastTile.classList.add('flash');
-        }, 3000); // Start flashing after 5 seconds
+        }, 3000);
         
         setTimeout(() => {
             lastTile.classList.remove('flash');
             lastTile.classList.add('vibrate');
-        }, 10000); // Start vibrating after 10 seconds
+        }, 5000);
+
+        setTimeout(() => {
+            lastTile.classList.remove('vibrate');
+            lastTile.classList.add('intense-vibrate');
+        }, 7000);
+
+        setTimeout(() => {
+            lastTile.classList.remove('intense-vibrate');
+            lastTile.classList.add('intense-vibrate-glow');
+        }, 9000);
     }
 
     // Select all tiles except the bottom-right one

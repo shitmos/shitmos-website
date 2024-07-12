@@ -2,7 +2,7 @@ import os
 import re
 
 # Define the HTML files to update
-html_files = ['../index.html', '../web2/pbjs.html']
+html_files = ['../index.html', '../web2/pbj/pbjs.html','../web2/wfk/lets_eat.html']
 
 # Function to update the version number in the HTML file
 def update_version(file_path, new_version):

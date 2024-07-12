@@ -1,0 +1,197 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 32px);
+    grid-template-rows: repeat(auto-fill, 32px);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.tile {
+    width: 32px;
+    height: 32px;
+    display: flex; /* Added to center the emoji */
+    justify-content: center; /* Added to center the emoji */
+    align-items: center; /* Added to center the emoji */
+    background-color: transparent; /* Set background color to transparent if needed */
+    animation: rotate 5s linear infinite;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    font-size: 1.5em; /* Adjust font size as needed */
+    line-height: 32px; /* Center the emoji vertically */
+}
+
+.tile::before {
+    content: "🍴"; /* Add the fork and knife emoji */
+}
+
+.tile.link:hover {
+    background-image: url('../../assets/images/shitmos_coin.svg');
+}
+
+.tile:first-child {
+    background-size: cover;
+    transition: background-image 0.5s ease-in-out, transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    background-image: url('../../assets/images/pbjs32x32.png');
+}
+
+.tile:first-child::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/images/shitmos_coin.svg');
+    opacity: var(--morph-factor, 0);
+    transition: opacity 0.5s ease-in-out;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes flash {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+
+@keyframes vibrate {
+    0% {
+        transform: translate(0);
+    }
+    25% {
+        transform: translate(-2px, -2px);
+    }
+    50% {
+        transform: translate(2px, -2px);
+    }
+    75% {
+        transform: translate(-2px, 2px);
+    }
+    100% {
+        transform: translate(2px, 2px);
+    }
+}
+
+@keyframes intense-vibrate {
+    0% {
+        transform: translate(0);
+    }
+    25% {
+        transform: translate(-4px, -4px);
+    }
+    50% {
+        transform: translate(3px, -5px);
+    }
+    75% {
+        transform: translate(-4px, 3px);
+    }
+    100% {
+        transform: translate(5px, 6px);
+    }
+}
+
+@keyframes intense-vibrate-glow {
+    0% {
+        transform: translate(0);
+        filter: brightness(1);
+    }
+    25% {
+        transform: translate(-4px, -4px);
+        filter: brightness(1.5) hue-rotate(20deg);
+    }
+    50% {
+        transform: translate(4px, -4px);
+        filter: brightness(3) hue-rotate(60deg);
+    }
+    75% {
+        transform: translate(-4px, 4px);
+        filter: brightness(1.5) hue-rotate(120deg);
+    }
+    100% {
+        transform: translate(4px, 4px);
+        filter: brightness(1);
+    }
+}
+
+@keyframes light-rays {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 255, 0, 0.5), 
+                    0 0 30px rgba(255, 255, 0, 0.5), 
+                    0 0 40px rgba(255, 255, 0, 0.5), 
+                    0 0 50px rgba(255, 255, 0, 0.5), 
+                    0 0 60px rgba(255, 255, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(255, 255, 0, 0.5), 
+                    0 0 40px rgba(255, 255, 0, 0.5), 
+                    0 0 50px rgba(255, 255, 0, 0.5), 
+                    0 0 60px rgba(255, 255, 0, 0.5), 
+                    0 0 70px rgba(255, 255, 0, 0.5);
+    }
+}
+
+.qr-code-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.qr-code-container img {
+    width: 25rem;
+    height: auto;
+}
+
+.glow {
+    animation: radiate 1s infinite;
+}
+
+.link {
+    cursor: pointer;
+}
+
+.bottom-right {
+    animation: rotate 5s linear infinite;
+}
+
+.bottom-right.flash {
+    animation: flash 1.5s linear infinite;
+}
+
+.bottom-right.vibrate {
+    animation: vibrate 0.2s linear infinite;
+}
+
+.bottom-right.intense-vibrate {
+    animation: intense-vibrate 0.2s linear infinite;
+}
+
+.bottom-right.intense-vibrate-glow{
+    animation: intense-vibrate-glow 0.2s linear infinite;
+}
+
+.bottom-right.glow {
+    animation: glow 2s infinite;
+}
+
+.bottom-right.light-rays {
+    animation: light-rays 2s infinite;
+}

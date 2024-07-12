@@ -36,9 +36,9 @@ def generate_qr_code(data, file_name, logo_path=None):
     print(f"QR code generated and saved as {file_name}")
 
 # Input data
-data = "https://jupiter-terminal.dexscreener.com/?inputMint=ANu4Wuq86WzRU8tykszQUJ66eQzFNfkwap2HcQ5UaFaU&outputMint=So11111111111111111111111111111111111111112"
-file_name = "pbj_qr.png"
-logo_path = "../assets/images/pbjs32x32.png"  # Replace with the path to your logo image
+data = "https://ape.store/base/0xda3d2a68cfe7e1588554aee8afd553f91a14647f"
+file_name = "wfk_qr.png"
+logo_path = "../assets/images/wfk_64x64.png"  # Replace with the path to your logo image
 
 # Generate the QR code with logo
 generate_qr_code(data, file_name, logo_path)

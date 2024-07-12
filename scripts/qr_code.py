@@ -36,7 +36,7 @@ def generate_qr_code(data, file_name, logo_path=None):
     print(f"QR code generated and saved as {file_name}")
 
 # Input data
-data = "https://ape.store/base/0xda3d2a68cfe7e1588554aee8afd553f91a14647f"
+data = "https://dexscreener.com/base/0x72213748e65d89144d1a5263c415cec6d71a18d7"
 file_name = "wfk_qr.png"
 logo_path = "../assets/images/wfk_64x64.png"  # Replace with the path to your logo image
 

@@ -38,9 +38,19 @@ body, html {
 }
 
 .tile:first-child {
-    background-size: cover;
-    transition: background-image 0.5s ease-in-out, transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    background-image: url('../../assets/images/pbjs32x32.png');
+    position: relative; /* Ensure the pseudo-element is positioned relative to .tile */
+    background-color: transparent; /* Set background color to transparent if needed */
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.tile:first-child::before {
+    content: "🍴"; /* Add the fork and knife emoji */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the emoji */
+    font-size: 2em; /* Adjust the size of the emoji as needed */
+    transition: opacity 0.5s ease-in-out;
 }
 
 .tile:first-child::before {

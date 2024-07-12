@@ -18,7 +18,7 @@ body, html {
 .tile {
     width: 32px;
     height: 32px;
-    background-image: url('../assets/images/pbjs32x32.png');
+    background-image: url('../../assets/images/pbjs32x32.png');
     background-size: cover;
     animation: rotate 5s linear infinite;
     cursor: pointer;
@@ -26,13 +26,13 @@ body, html {
 }
 
 .tile.link:hover {
-    background-image: url('../assets/images/shitmos_coin.svg');
+    background-image: url('../../assets/images/shitmos_coin.svg');
 }
 
 .tile:first-child {
     background-size: cover;
     transition: background-image 0.5s ease-in-out, transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    background-image: url('../assets/images/pbjs32x32.png');
+    background-image: url('../../assets/images/pbjs32x32.png');
 }
 
 .tile:first-child::before {
@@ -40,7 +40,7 @@ body, html {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url('../assets/images/shitmos_coin.svg');
+    background-image: url('../../assets/images/shitmos_coin.svg');
     opacity: var(--morph-factor, 0);
     transition: opacity 0.5s ease-in-out;
 }

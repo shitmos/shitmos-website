@@ -11,6 +11,7 @@ body {
     align-items: center;
 }
 
+
 header, footer {
     background-color: rgb(221, 215, 181);
     color: rgb(119, 93, 8);
@@ -128,4 +129,22 @@ footer {
     .image-popup:hover {
         transform: scale(2.0);
     }
+}
+
+.container-manifesto {
+    padding: 65px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgb(221, 215, 181);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.container-manifesto h1, h2, h3 {
+    text-align: center;
+}
+
+.container-manifesto p {
+    text-align: justify;
 }
